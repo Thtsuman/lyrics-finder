@@ -11,6 +11,11 @@ const reducer = (state, action) => {
         track_list: action.payload,
         heading: "Search Results"
       };
+    case "CHANGE_HEADING":
+      return {
+        ...state,
+        heading: `Search Results for "${action.payload}"`
+      };
     default:
       return state;
   }
@@ -20,6 +25,7 @@ export class Provider extends React.Component {
   state = {
     track_list: [],
     heading: "Top 10 Songs",
+    search_key: "",
     dispatch: action => this.setState(state => reducer(state, action))
   };
 

@@ -23,6 +23,10 @@ class Search extends React.Component {
           type: "SEARCH_TRACKS",
           payload: res.data.message.body.track_list
         });
+        dispatch({
+          type: "CHANGE_HEADING",
+          payload: this.state.trackTitle
+        });
         this.setState({ trackTitle: "" });
       })
       .catch(err => console.log(err));
